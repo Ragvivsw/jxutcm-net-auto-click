@@ -1,0 +1,36 @@
+// ==UserScript==
+// @name         江中医校园网自动点击登录
+// @namespace    Ragvivsw.
+// @version      0.9
+// @description  仅限 江西中医药大学 电信校园网 自动登陆 自用，需配合Chrome账号密码自动填充
+// @author       Ragvivsw
+// @match        http://172.19.1.1/a70.htm
+// @match        http://117.21.75.222/a70.htm?mac=000000000000
+// @grant        none
+// ==/UserScript==
+
+var loadFunc = function(func){
+    if (document.addEventListener) {
+        window.addEventListener("load", func, false);
+    }
+    else if (document.attachEvent) {
+        window.attachEvent("onload", func);
+    }
+ }
+
+loadFunc(function(){
+    'use strict';
+    document.querySelector("#edit_body > div:nth-child(2) > select > option:nth-child(2)").selected=true;
+    let dia = document.querySelector("#edit_body > div:nth-child(2) > div.edit_loginBox.ui-resizable-autohide.eye-protector-processed > form > input:nth-child(1)");
+    dia.click();
+})
+loadFunc(function(){
+    let dia = document.querySelector("#\\31 249624488 > input:nth-child(3)");
+    dia.click();
+})
+
+
+//延时部分部分参考 https://blog.csdn.net/aabbyyz/article/details/83188076
+//模拟点击部分参考 https://blog.csdn.net/joyvonlee/article/details/91868953
+//元素获取使用 Chrome 控制台右键 Copy JS path
+//由于没有 HTML、Jscript 等基础，明显有冗余代码，目前无能为力
